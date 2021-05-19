@@ -1,0 +1,23 @@
+Praticando limpeza e tratamento de dados em R
+```{r}
+getwd()
+dados = read.csv("Churn.csv", sep=";", na.strings = "", stringsAsFactors = T)
+head(dados)
+summary(dados)
+```
+Fatores, diferente das Strings, podem ser categorizados, possuem um valor, não sendo somente letras
+
+```{r}
+#alterando o nome das colunas para entender melhor os dados de cada uma
+colnames(dados) = c("Id", "Score", "Estado", "Genero", "Idade", "Patrimonio", "Saldo", "Produtos", "TemCartaoCredito", "Ativo", "Salario", "Saiu")
+head(dados)
+```
+
+Estados
+
+```{r}
+counts = table(dados$Estado)
+barplot(counts, main="Estados", xlab="Estados")
+```
+
+
